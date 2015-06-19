@@ -1,122 +1,133 @@
 .window {
-	font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-	color: #fff;
-    background: #000;
+	border: 8px solid #f0f; /* to help with aligning */
+	background: #222;
+	padding: 0;
+	margin: 0;
+	font: Roboto, Droid Sans, Open Sans, Ubuntu, Cantarell, Arial, FreeSans, Liberation Sans;
 }
 .header {
-    color: #fff;
-	font-family: "Roboto", "Droid Sans", "Tahoma", "Arial", sans-serif;
-	font-weight: bold;
-    background: linear-gradient(#222, #111);
+	background: linear-gradient(#555,#222);
+	font-weight: 900;
+	text-shadow: 0px 2px 1px rgba(0,0,0,0.33);
+	box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+	border-bottom: 1px solid rgba(255,255,255,0.07);
 }
-.title, .attempt-count {
-    padding-top: 4px;
-    padding-bottom: 4px;
+.title {
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	font-size: 11pt;
 }
 .attempt-count {
-	color: #f70;
-    padding-right: 4px;
+	color: #2196F3;
+	font-size: 9pt;
+	padding: 8px;
+	padding-top: 7px;
 }
-.splits, .split-last {
-	font-size: 10pt;
-    text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
-}
-.split, .split-last {
-	color: #99a;
-	font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
-    background: transparent;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.split {
-    color: #99a;
-}
-.current-split {
-    color: #000;
-    background: linear-gradient(#fff, #ccc);
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.65);
-    border: 0;
-    transition: .1s;
-}
-.split .split-time .done {
-    color: #fff;
-}
-.current-split .split-time {
-	color: #000;
-    background: transparent;
-}
-.split, .current-split, .split-title, .split-time, .split-delta, .split-last {
-	padding-top: 2px;
-	padding-bottom: 2px;
-	padding-left: 4px;
-	padding-right: 4px;
-}
-
 .time {
-	font-family: "Roboto Black", "Droid Sans", "Tahoma", "Arial", sans-serif;
-    font-weight: bold;
-    color: #fff;
+	color: #fff;
+	font-weight: 900;
 }
-
 .delta {
-    font-family: "Roboto Black";
-    background: transparent;
+	color: #fff;
 }
-.best-split, .footer .previous-segment .best-split {
-    animation: blink-split 4s;
-    animation-iteration-count: infinite;
-    background-color: transparent;
-}
-@keyframes blink-split {
-    0% {
-        color: #FFC107;
-    }
-    50% {
-        color: #FFC107;
-    }
-    75% {
-        color: #FFECB3;
-    }
-    100% {
-        color: #FFC107;
-    }
-}
-
 .timer {
-    text-shadow: 0px 2px 3px rgba(0,0,0,0.65);
-    color: #4CAF50;
-    background: linear-gradient(#222, #111);
-    transition: .5s;
-}
-.timer-millis {
-    font-size: 12pt;
-    padding-bottom: 5px;
-    padding-right: 4px;
+	text-shadow: 0px 2px 1px rgba(0,0,0,0.33);
+	background: linear-gradient(#000,#333);
+	box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+	transition: .25s;
 }
 .timer-seconds {
-    font-size: 24pt;
+	font-size: 32pt;
 }
+.timer-millis {
+	padding-bottom: 6px;
+	font-weight: 100;
+	padding-right: 8px;
+}
+.delay {
+	opacity: 0.33;
+	transition: .25s;
+}
+.splits, .split-last {
+	font-weight: 300;
+	font-size: 10pt;
+	border: 0;
+}
+.split {
+	border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.current-split {
+	background-color: #37474F;
+}
+.split>.delta, .split-last>.delta {
+	color: #4CAF50;
+}
+.split>.behind, .split-last>.behind {
+	color: #F44336;
+}
+.split>.best-segment, .split-last>.best-segment {
+	color: #FFC107;
+	animation: bestseg-blink;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 
-.losing {
-    color: #4CAF50;
-    transition: .5s;
 }
-.behind {
-    color: #F44336;
-    transition: .5s;
+.split-title {
+	padding-top: 4px;
+	padding-left: 8px;
+	padding-bottom: 4px;
+}
+.split-time {
+	padding-right: 8px;
+}
+.split-last {
+	border: 0;
+	opacity: 0.5;
+}
+.timer {
+	background: linear-gradient(#4CAF50,#1B5E20);
+	border: 0;
+}
+.timer.delay {
+	background: linear-gradient(#9E9E9E,#444);
+}
+.timer.behind {
+	background: linear-gradient(#F44336,#B71C1C);
 }
 .footer {
-    color: #555;
+	font-size: 8pt;
+}
+.prev-segment-label, .prev-segment {
+	padding-top: 8px;
+}
+.prev-segment-label, .sum-of-bests-label, .personal-best-label, .world-record-label {
+	padding-left: 8px;
+}
+.prev-segment, .sum-of-bests, .personal-best, .world-record {
+	padding-right: 8px;
+}
+.personal-best, .personal-best-label, .world-record, .world-record-label {
+	padding-bottom: 8px;
+}
+.footer>.delta {
+	color: #4CAF50;
+}
+.footer>.behind {
+	color: #F44336;
+}
+.footer>.best-segment, .footer>.best-segment {
+	color: #FFC107;
+}
+.world-record {
+	color: #2196F3;
 }
 
-.split-last {
-    color: #99a;
-    border-top: 1px solid #fff;
-    box-shadow: 0px -4px 8px rgba(0,0,0,0.8);
-}
-.split-last .split-time {
-    color: #99a;
-}
-.footer, .previous-segment-label, .previous-segment, .sum-of-bests-label, .sum-of-bests, .personal-best-label, .personal-best, .world-record-label, .world-record {
-    padding-left: 4px;
-    padding-right: 4px;
+@keyframes bestseg-blink {
+	from {
+		color: #FFC107;
+	} to {
+		color: #FFE082;
+	}
 }
